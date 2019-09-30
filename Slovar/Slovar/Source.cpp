@@ -2,6 +2,7 @@
 #include<string>
 #include<map>
 #include<vector>
+#include<>
 
 using namespace std;
 using std::cout;
@@ -21,7 +22,10 @@ void main()
 		pair<string,vector<string>>("winter",vector<string>{"холод","зима"}),
 	};
 
-
+	for (pair<string, vector<string>>i : dictionary)
+	{
+		cout << i.first << "\t" << i.second << endl;
+	}
 
 
 }
