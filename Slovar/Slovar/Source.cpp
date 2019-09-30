@@ -2,12 +2,12 @@
 #include<string>
 #include<map>
 #include<vector>
-#include<>
 
 using namespace std;
 using std::cout;
 using std::cin;
-
+#define d "\n----------------------------------\n"
+#define dd "\n==================================\n"
 
 void main()
 {
@@ -21,11 +21,32 @@ void main()
 		pair<string,vector<string>>("solitude",vector<string>{"одиночество","уединение"}),
 		pair<string,vector<string>>("winter",vector<string>{"холод","зима"}),
 	};
-
+	//Standart output:
+		cout << d;
+	for (map<string, vector<string>>::iterator it = dictionary.begin(); it != dictionary.end(); it++)
+	{
+		cout << it->first << endl<<endl;
+		for (vector<string>::iterator it2 = it->second.begin(); it2 != it->second.end(); it2++)
+		{
+			cout << *it2 << endl;
+		}
+		cout << d;
+	}
+	cout << dd<<d;
 	for (pair<string, vector<string>>i : dictionary)
 	{
-		cout << i.first << "\t" << i.second << endl;
+		cout << i.first <<  endl<<endl;
+		for (string j : i.second)
+		{
+			cout << j << endl;
+		}
+		cout << d;
 	}
-
-
+	
+	vector<int> numbers = { 3,5,8,13,21 };
+	for (int i : numbers)
+	{
+		cout << i << "\t";
+	}
+	cout << endl;
 }
