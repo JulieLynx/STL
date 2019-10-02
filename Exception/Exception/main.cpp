@@ -6,7 +6,8 @@ using std::cin;
 //#define EXCEPTION_SYNTAX
 //#define DIVISION_BY_ZERO_EXCEPTION
 #define FACTORIAL
-
+#define LONG_LONG_INT_FACTORIAL
+long long int factorial(int n);
 
 void main()
 {
@@ -53,17 +54,28 @@ void main()
 
 	}
 #endif // DIVISION_BY_ZERO_EXCEPTION
-
 #ifdef FACTORIAL
 	int n;
-	long long int f = 1;
 	cout << "Input number to find factorial: "; cin >> n;
+	try
+	{
+		cout << n << " != " << factorial(n) << endl;
+	}
+	catch (const std::exception& e)
+	{
+		cerr << e.what() << endl;
+	}
+#endif // FACTORIAL
+}
+long long int factorial(int n)
+{
+	if (n > 20)throw overflow_error("Too large number");//exception("Error: too large number");
+	long long int f = 1;
 	for (int i = 1; i <= n; i++)
 	{
-		cout << i << " != ";
 		f *= i;
-		cout << f << endl;
+		/*cout << i << " != ";
+		cout << f << endl;*/
 	}
-
-#endif // FACTORIAL
+return f;
 }
