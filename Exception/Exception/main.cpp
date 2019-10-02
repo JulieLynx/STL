@@ -6,7 +6,7 @@ using std::cin;
 //#define EXCEPTION_SYNTAX
 //#define DIVISION_BY_ZERO_EXCEPTION
 #define FACTORIAL
-#define LONG_LONG_INT_FACTORIAL
+//#define LONG_LONG_INT_FACTORIAL
 long long int factorial(int n);
 
 void main()
@@ -67,10 +67,12 @@ void main()
 	}
 #endif // FACTORIAL
 }
+//fgh;lkf;ghflh
 long long int factorial(int n)
 {
 	if (n > 20)throw overflow_error("Too large number");//exception("Error: too large number");
 	long long int f = 1;
+
 	for (int i = 1; i <= n; i++)
 	{
 		f *= i;
