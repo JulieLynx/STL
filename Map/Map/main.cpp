@@ -11,10 +11,10 @@ using namespace std;
 using std::cout;
 
 //#define STL_ARRAY
-//#define STL_VECTOR
+#define STL_VECTOR
 //#define STL_DEQUE
 //#define STL_FORWARD_LIST
-#define STL_MAP
+//#define STL_MAP
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -41,11 +41,18 @@ void main()
 #endif // STL_ARRAY
 #ifdef STL_VECTOR
 	vector<int> vec = { 0,1,1,2,3,5,8,13,21,34 };
-	for (int i = 0; i < vec.size(); i++)
+	try
 	{
-		cout << vec[i] << "\t";
+		for (int i = 0; i < vec.size() * 2; i++)
+		{
+			cout << vec.at(i) << "\t";
+		}
+		cout << endl;
 	}
-	cout << endl;
+	catch (const std::exception& e)
+	{
+		cerr << e.what() << endl;
+	}
 	cout << "size:\t\t" << vec.size() << endl;
 	cout << "capacity:\t" << vec.capacity() << endl;
 	cout << "max_size:\t" << vec.max_size() << endl;
@@ -135,7 +142,7 @@ void main()
 	for (deque<int>::iterator it = dq.begin(); it != dq.end(); it++)
 	{
 		cout << *it << "\t";
-	}
+}
 
 #endif // DEQUE
 #ifdef STL_FORWARD_LIST
