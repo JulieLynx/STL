@@ -4,6 +4,7 @@
 #include<forward_list>
 #include"Crime.h"
 #include<conio.h>
+#include<windows.h>
 using namespace std;
 using std::cout;
 using std::cin;
@@ -18,8 +19,8 @@ void main()
 	map<string, forward_list<Crime>>database =
 	{
 		pair<string,forward_list<Crime>>("BI 6666 BC",{Crime("АТБ на Ляли","Принес в жертву черного барана, в результате чего облил светор кровью барана,и заляпал зебру")}),
-		pair<string,forward_list<Crime>>("BI 4567 BC", {Crime("McDonalds", "Плюнул в пост Гаи")}),
-		pair<string,forward_list<Crime>>("BT 2134 CI", {Crime("АТБ на Ляли", "Сбил забор возле клумбы")})
+		pair<string,forward_list<Crime>>("BI 6667 BC", {Crime("McDonalds", "Плюнул в пост Гаи")}),
+		pair<string,forward_list<Crime>>("BI 6668 BC", {Crime("АТБ на Ляли", "Сбил забор возле клумбы")})
 
 	};
 	do
@@ -49,14 +50,42 @@ void main()
 		{
 			string start_id, end_id;
 			cout << "Введите начальный номер:  "; 
-			cin.clear();
-			cin.ignore();
+			cin.sync();
+			cin.get();
 			getline(cin, start_id);
 			cout << "Введите конечный номер:  "; 
 			//cin.clear();
-			cin.ignore();
+			//cin.ignore();
 			getline(cin, end_id);
-			print(database, start_id, end_id);
+			/*if (start_id == end_id)
+			{
+				cout << "\nНомера не могут повторяться!\n";
+			}*/
+			/*else*/ print(database, start_id, end_id);
+		}
+		case'4':system("CLS");
+		{
+			string id, place, crime;
+			cout << "Добавление квитанции: ";
+			cin.sync();
+			cin.get();
+			SetConsoleCP(1251);
+			SetConsoleOutputCP(1251);
+			cout << "Введите номер автомобиля:  "; getline(cin, id);
+			SetConsoleCP(866);
+			SetConsoleOutputCP(866);
+			SetConsoleCP(1251);
+			SetConsoleOutputCP(1251);
+			cout << "Место проишествия: \n"; getline(cin, place);
+			SetConsoleCP(866);
+			SetConsoleOutputCP(866);
+			SetConsoleCP(1251);
+			SetConsoleOutputCP(1251);
+			cout << "Проишествиe: \n"; getline(cin, crime);
+			SetConsoleCP(866);
+			SetConsoleOutputCP(866);
+			database[id].push_front(Crime(place, crime));
+			break;
 		}
 		}
 	} while (getch() != 27);//для гетч нужно подключить conio.h !
